@@ -1,0 +1,472 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+.main__menu {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#main__svg {
+  width: 55%;
+  height: 500px;
+  position: absolute;
+  left: 13%;
+  top: -20%;
+}
+#main__svg path {
+  width: 10%;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+}
+
+.menu {
+  z-index: 1;
+}
+.menu__point {
+  width: calc(20px + 52 * (100vw / 1920));
+  height: calc(20px + 52 * (100vw / 1920));
+  border-radius: 50%;
+  background: #ccc917;
+  position: absolute;
+  top: 60%;
+  left: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  color: white;
+}
+.menu__point span {
+  position: relative;
+  font-size: calc(5px + 12 * (100vw / 1920));
+  font-family: Syne Mono, sans-serif;
+}
+
+.button {
+  cursor: pointer;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: calc(5px + 13 * (100vw / 1920));
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.button:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.anime__point {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  -webkit-transition-property: background;
+  transition-property: background;
+  border: 1px solid #ccc917;
+}
+.anime__point:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(255, 238, 0, 0.4);
+}
+
+.profile {
+  position: absolute;
+  width: 15%;
+  right: 0px;
+  margin: 15px 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1;
+}
+.profile__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+}
+
+.short__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nickname {
+  width: 70px;
+  font-size: calc(5px + 13 * (100vw / 1920));
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: white;
+  background: rgba(219, 219, 219, 0.164);
+  padding: 3px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  text-align: center;
+}
+
+.level {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5px;
+}
+.level span {
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  padding: 0;
+  color: white;
+}
+.level span:nth-child(1) {
+  font-size: 13px;
+  margin-right: 5px;
+}
+.level span:nth-child(2) {
+  font-size: 8px;
+  padding: 3px 5px;
+  border-radius: 5px;
+  background: rgba(219, 219, 219, 0.164);
+}
+.level span:nth-child(3) {
+  margin: 0 0 0 5px;
+  font-size: 8px;
+  border-radius: 5px;
+}
+.level span:nth-child(4) {
+  font-size: 8px;
+}
+.level span:nth-child(4)::before {
+  content: "/";
+}
+
+.avatar__block {
+  width: calc(20px + 35 * (100vw / 1920));
+  height: calc(20px + 35 * (100vw / 1920));
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.avatar {
+  height: 50px;
+}
+
+.edit {
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+}
+
+.main__registration {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.registration {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 400px;
+  height: 350px;
+  border-radius: 10px;
+  background: #48535e8c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  z-index: 10;
+}
+.registration img {
+  width: 150px;
+  height: 150px;
+  margin: -70px 0 30px 0;
+}
+.registration__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.registration input[type=email], .registration input[type=password] {
+  width: 300px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding-left: 10px;
+}
+.registration input[type=submit] {
+  width: 100px;
+  height: 40px;
+  background: #d3d60b;
+  font-size: 18px;
+  font-family: Syne Mono, sans-serif;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border: 1px solid #ccc917;
+}
+.registration input[type=submit]:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(255, 238, 0, 0.4);
+}
+
+.login {
+  position: absolute;
+  right: 3%;
+  bottom: 3%;
+  width: calc(40px + 52 * (100vw / 1920));
+  height: calc(40px + 52 * (100vw / 1920));
+  border-radius: 50%;
+  background: #ccc917;
+  border: 1px solid #ccc917;
+  z-index: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: calc(5px + 13 * (100vw / 1920));
+  font-family: Syne Mono, sans-serif;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.login:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(255, 238, 0, 0.4);
+}
+
+.level__disable-block {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}
+.level__disable-block .choose__level {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #48535ed5;
+  border-radius: 20px;
+  z-index: 1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.level__disable-block .choose__level-block {
+  margin: 20px;
+  width: 82px;
+  height: 82px;
+  border-radius: 10px;
+  background: white;
+  border: 2px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: #B28B00;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.level__disable-block .choose__level-block:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  background: rgba(255, 255, 255, 0.241);
+}
+
+.click__level {
+  margin: 20px;
+  width: 82px;
+  height: 82px;
+  border-radius: 10px;
+  background: rgba(136, 79, 79, 0.24);
+  border: 2px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 18px;
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: #B28B00;
+  cursor: pointer;
+}
+
+.options__str {
+  width: 300px;
+  height: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: #48535ed5;
+  border-radius: 20px;
+  z-index: 1;
+  padding: 15px;
+}
+.options__str h1 {
+  font-size: calc(5px + 13 * (100vw / 1920));
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 36px;
+}
+.options__str .options {
+  width: 100%;
+}
+.options__str .options__block {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.options__str .options__block p {
+  font-size: calc(5px + 13 * (100vw / 1920));
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  margin-right: 5px;
+}
+.options__str .options__button {
+  width: 100px;
+  height: 35px;
+  border-radius: 20px;
+  background: #FFF500;
+  font-size: calc(5px + 13 * (100vw / 1920));
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 20px;
+  outline: none;
+  border: 1px solid #FFF500;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.options__str .options__button:hover {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  border-radius: 0;
+  background: #fff70082;
+}

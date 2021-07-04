@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+
+$var1: #1d252d;
+$var2: #ffffff;
+$var3: #1D252D;
+
+@mixin font__style {
+	font-size: calc(5px + 13 * (100vw / 1920));
+	font-family: Syne Mono, sans-serif;
+	font-weight: bold;
+	color: white;
+}
+
+* {
+	margin: 0;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 100vh;
+	overflow: hidden;
+	background: $var1;
+}
+#main {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	justify-content: flex-end;
+	align-items: center;
+	font-size: 18px;
+	color: $var1;
+	font-family: Syne Mono, sans-serif;
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.game__button {
+	display: block;
+	width: 100px;
+	height: 50px;
+	position: absolute;
+	left: calc(50% - 50px);
+	bottom: 10px;
+	border-radius: 5px;
+	border: none;
+	font-size: 18px;
+	font-family: Syne Mono, sans-serif;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	text-transform: uppercase;
+	background: rgb(219, 187, 43);
+}
+.main__text, .text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: right;
+	color: rgb(255, 255, 255);
+	width: 50px;
+	height: 50px;
+	border: 1px solid rgb(139, 118, 21);
+	border-radius: 5px;
+	font-size: 18px;
+	font-weight: bold;
+	position: absolute;
+	right: 150px;
+	color: $var2;
+	box-shadow: 0 0 2px $var2, 0 0 4px #ffffff, 0 0 8px #ffffff, 0 0 4px rgb(139, 118, 21), 0 0 6px rgb(139, 118, 21), 0 0 8px rgb(139, 118, 21), 0 0 10px rgb(139, 118, 21), 0 0 12px rgb(139, 118, 21);
+}
+.mini__anime {
+	width: 100%;
+	height: 9.975vh;
+	background: $var3;
+	position: relative;
+}
+.text__block {
+	width: 100%;
+	height: 80px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	position: absolute;
+	z-index: 5;
+}
+.animation__key {
+	animation: anim 0.1s ease forwards;
+	animation-direction: alternate;
+	animation-iteration-count: 2;
+}
+@keyframes anim {
+	100%{
+        box-shadow: 0 0 10px $var2, 0 0 20px #ffffff, 0 0 30px #ffffff, 0 0 50px rgb(139, 118, 21), 0 0 60px rgb(139, 118, 21), 0 0 80px rgb(139, 118, 21), 0 0 90px rgb(139, 118, 21), 0 0 100px rgb(139, 118, 21);
+    }
+}
+.hidden {
+	display: none !important;
+}
+.unvisible__text {
+	visibility: hidden;
+}
+.sprite {
+	position: absolute;
+	top: 38%;
+	height: 260px;
+	width: 100%;
+}
+#sprite__img {
+	height: 240px;
+	width: 210px;
+	background: url(../../img/pacman.png);
+}
+.packman {
+	animation: pacman .3s steps(4) forwards;
+}
+@keyframes pacman {
+	100% {
+        background-position-x: 892px;
+    }
+}
+.score {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 35px;
+	border-radius: 5px;
+	background: rgba(255, 255, 255, 0.24);
+	font-family: Syne Mono, sans-serif;
+	font-weight: bold;
+	color: white;
+}
+.game__time {
+	position: absolute;
+	top: 23%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	font-family: Syne Mono, sans-serif;
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 251, 37);
+    width: 123px;
+}
+.back__menu {
+	position: absolute;
+	top: 5%;
+	left: 2%;
+	width: 50px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.24);
+	font-family: Syne Mono, sans-serif;
+	font-weight: bold;
+	color: white;
+}
+.lose__block-window {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 3;
+}
+.lose {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform:translate(-50%, -50%);
+	width: 300px;
+	height: 230px;
+	border-radius: 10px;
+	background: #111922;
+	border: 3px solid rgb(219, 239, 1);
+	p {
+		margin-left: 10px;
+	}
+	&__block {
+		display: flex;
+		justify-content: center;
+	}
+	h1 {
+		@include font__style;
+		font-size: 30px;
+		padding: 10px;
+	}
+	&__time, &__score, &__fail, &__success, &__percent {
+		display: flex;
+		justify-content: space-between;
+		@include font__style;
+		font-size: 18px;
+
+		p:nth-child(2) {
+			margin-right: 10px;
+		}
+	}
+	&__button {
+		display: flex;
+		justify-content: center;
+		@include font__style;
+		color: rgb(219, 239, 1);
+		font-size: 18px;
+		margin-top: 15px;
+		cursor: pointer;
+		p {
+			padding: 5px 15px;
+			border-radius: 5px;
+			border: 2px solid rgb(253, 253, 253);
+		}
+	}
+}

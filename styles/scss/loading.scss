@@ -1,0 +1,122 @@
+$var1: #1D252D;
+$var2: #ffe15b;
+$var3: #ffffff;
+
+#preview {
+	background: $var1;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	z-index: 1;
+}
+.logo {
+	animation: fill .5s ease forwards 3s;
+	path:nth-child(2) {
+		stroke-dasharray: 797px;
+		stroke-dashoffset: 797px;
+		animation: line-anim 2s ease forwards;
+	}
+	path:nth-child(3) {
+		stroke-dasharray: 511px;
+		stroke-dashoffset: 511px;
+		animation: line-anim 2s ease forwards .2s;
+	}
+	path:nth-child(4) {
+		stroke-dasharray: 286px;
+		stroke-dashoffset: 286px;
+		animation: line-anim 2s ease forwards .4s;
+	}
+	path:nth-child(5) {
+		stroke-dasharray: 384px;
+		stroke-dashoffset: 384px;
+		animation: line-anim 2s ease forwards .6s;
+	}
+	path:nth-child(6) {
+		stroke-dasharray: 656px;
+		stroke-dashoffset: 656px;
+		animation: line-anim 2s ease forwards .8s;
+	}
+	path:nth-child(7) {
+		stroke-dasharray: 556px;
+		stroke-dashoffset: 556px;
+		animation: line-anim 2s ease forwards 1.2s;
+	}
+	path:nth-child(8) {
+		stroke-dasharray: 558px;
+		stroke-dashoffset: 558px;
+		animation: line-anim 2s ease forwards 1.4s;
+	}
+}
+@keyframes line-anim {
+	100%{
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes fill {
+	0%{
+        fill: transparent;
+    }
+    100%{
+        fill: white;
+    }
+}
+
+.start__block {
+	display: flex;
+	justify-content: center;
+	color: white;
+	font-size: 30px;
+	font-family: Noto Sans JP, sans-serif;
+	font-weight: 400;
+	&:hover  .letter {
+		transition: .3s;
+		transform: scale(0.8);
+		box-shadow: 0 0 2px $var3, 0 0 4px #ffffff, 0 0 8px #ffffff, 0 0 4px #ffffff;
+	}
+	&:hover span {
+		transition: .3s;
+		transform: scale(1.5);
+	}
+}
+.letter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: calc(20px + 60 * (100vw / 1920));
+	height: calc(20px + 60 * (100vw / 1920));
+	font-size: calc(5px + 25 * (100vw / 1920));
+	border-radius: 5px;
+	box-shadow: 0 0 2px #fcd735, 0 0 4px #fcd735, 0 0 8px #fcd735, 0 0 4px $var2;
+	margin-right: 15px;
+	margin-bottom: 10px;
+	transition: .3s;
+	cursor: pointer;
+	opacity: 0;
+	animation: letter 4s ease forwards 2.5s;
+}
+span {
+	transition: .3s;
+}
+@keyframes letter {
+	0%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.block__line {
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.line {
+	width: 0px;
+	height: 15px;
+	border: 2px solid rgb(255, 255, 255);
+	background: rgb(255, 255, 255);
+}

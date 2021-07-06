@@ -1,15 +1,18 @@
 import {result} from '../menu/menu.js'
 import {createLoseWindow} from '../canvas/loseWindow/loseWindow.js'
 import {loseWindow} from '../canvas/loseWindow/loseLogic.js'
+// import firebase from "firebase/app";
+// import "firebase/database";
 
 let button = document.getElementsByClassName('game__button'),
     canvas = document.getElementById('main'),
     alfa = 'abcdefghijklmnopqrstuvwxyz',  
     arrRandom = [],
     allLetters = document.getElementsByClassName('text'),
-    textCanvas = document.querySelector('.text__block'),
+    textCanvas = document.getElementsByClassName('text__block')[0],
     newLetterBlock,
     letters = document.getElementsByTagName('p'),
+    database,
     mechanic,
     score = document.getElementsByClassName('score')[0],
     counterFailClicks = 0,
@@ -34,7 +37,7 @@ button[0].addEventListener('click', () => {
         anime({
             targets: letters[counter++],
             translateX: -2000,
-            duration: 10000,
+            duration: 5000,
             easing: 'linear'
         });
 
@@ -42,13 +45,15 @@ button[0].addEventListener('click', () => {
         if(parseInt(score.textContent) > counterFailClicks) {
             counterPercentSC = parseInt(100 - (counterFailClicks / (+score.textContent + counterFailClicks) * 100));
         } else {
-            counterPercentSC = parseInt(('-') + 100 - (+score.textContent / (counterFailClicks + counterFailClicks) * 100));
+            counterPercentSC = parseInt(`-${100 - (+score.textContent / (counterFailClicks + counterFailClicks) * 100)}`);
         }
 
         createLoseWindow();
         loseWindow();
 
         document.getElementsByClassName('lose__button')[0].addEventListener('click', () => {
+
+            document.body.style.background = '#1d252d';
             counterFailClicks = 0;
             counterScore = 0;
             score.innerHTML = counterScore;
@@ -92,7 +97,7 @@ button[0].addEventListener('click', () => {
     }, 800);
 
         let removeInterval = setInterval(() => { 
-            Array.from(allLetters).forEach(function(e) {
+            Array.from(allLetters).forEach((e) => {
                 let position = e.getBoundingClientRect();
                 if(position.left < 190) {
                     i++;
@@ -120,7 +125,7 @@ let counterScore = 0,
     counterLevelUp = 1,
     counterPointsToLevelUp = 100;
 
-    document.addEventListener('keypress' , function del(e) {
+    document.addEventListener('keypress' , (e) => {
         try {
             if(allLetters[0].textContent == e.key) {
                 counterScore++;
@@ -173,7 +178,7 @@ let counterScore = 0,
 
 let milliseconds = 0;
 let timer;
-export let checkPole = document.querySelector('.game__time');
+export let checkPole = document.getElementsByClassName('game__time')[0];
 
 export function startCheck() {
     timer = setInterval(() => {
@@ -187,7 +192,7 @@ export function startCheck() {
 }
 
 document.getElementsByClassName('back__menu')[0].addEventListener('click', () => {
-        Array.from(allLetters).forEach(function(e) {
+        Array.from(allLetters).forEach((e) => {
             e.classList.remove('text');
             e.classList.add('unvisible__text');
         });
@@ -214,6 +219,13 @@ document.getElementsByClassName('back__menu')[0].addEventListener('click', () =>
             canvas.classList.add('hidden');
         }, 400);
 });
+
+
+// function dataBase() {
+//     database = firebase.database();
+//     console.log(database);
+// }
+// dataBase();
 
 
         export {canvas, score, counterFailClicks, counterPercentSC}

@@ -470,3 +470,10 @@
   border-radius: 0;
   background: #fff70082;
 }
+
+.options__disable-block {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 3;
+}

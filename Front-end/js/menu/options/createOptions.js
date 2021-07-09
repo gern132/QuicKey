@@ -1,6 +1,6 @@
 export function createOptions() {
     let modal = document.createElement('div');
-        modal.classList.add('level__disable-block');
+        modal.classList.add('options__disable-block');
         modal.innerHTML = `
         <div class="options__str">
         <h1>Options</h1>

@@ -6,10 +6,14 @@ import {createLevelChoose} from './levels/level.js'
 import {levelLogic} from './levels/levelLogic.js'
 import {createOptions} from './options/createOptions.js'
 import {optionLogic} from './options/optionLogic.js'
-import {createLoseWindow} from '../canvas/loseWindow/loseWindow.js'
 
+let menuButton = document.getElementsByClassName('button'),
+    menuPoints = document.getElementsByClassName('menu__point'),
+    mainMenu = document.getElementsByClassName('main__menu');
 
-function result() {
+let localValue1 = sessionStorage.getItem('game');
+
+export function result() {
   anime({
     targets: '#main__svg path',
     strokeDashoffset: [anime.setDashoffset, 0],
@@ -18,10 +22,6 @@ function result() {
     direction: 'alternate',
     loop: true
 });
-
-let menuButton = document.getElementsByClassName('button'),
-    menuPoints = document.getElementsByClassName('menu__point'),
-    mainMenu = document.getElementsByClassName('main__menu');
 
   function checkWindowWidth() {
     let windowWidth = document.documentElement.clientWidth;
@@ -94,8 +94,11 @@ let menuButton = document.getElementsByClassName('button'),
         }
   });
 
-  menuPoints[0].addEventListener('click', () => {
+menuPoints[0].addEventListener('click', () => { 
     canvas.classList.remove('hidden');
+
+    sessionStorage.removeItem('myKey');
+    sessionStorage.setItem('game', 'gamePole'); 
 
     anime({
       targets: '.main__menu',
@@ -138,6 +141,8 @@ let menuButton = document.getElementsByClassName('button'),
       input[0].classList.add('hidden');
 
       document.getElementsByClassName('nickname__show')[0].innerHTML = input[0].value
+
+      sessionStorage.setItem('nickname', document.getElementsByClassName('nickname__show')[0].textContent)
     });
 });
 
@@ -149,7 +154,7 @@ document.getElementsByClassName('login')[0].addEventListener('click', () => {
   document.getElementsByClassName('menu__point')[1].addEventListener('click', () => {
     createLevelChoose();
     levelLogic();
-  });
+  }, { once: true });
 
   document.getElementsByClassName('menu__point')[2].addEventListener('click', () => {
     createOptions();
@@ -157,4 +162,4 @@ document.getElementsByClassName('login')[0].addEventListener('click', () => {
   });
 }
 
-export {result}
+export {localValue1, mainMenu}

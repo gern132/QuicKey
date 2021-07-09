@@ -1,4 +1,7 @@
-/node_modules
-/package-lock.json
-/dist
+.idea
+Front-end/dist
+Front-end/node_modules
+Front-end/package-lock.json
+Back-end/node_modules
+Back-end/package-lock.json
 /prepros.config

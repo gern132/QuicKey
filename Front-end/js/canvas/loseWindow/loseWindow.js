@@ -4,7 +4,7 @@ export function createLoseWindow() {
         modal.innerHTML = `
         <div class="lose">
                     <div class="lose__block">
-                        <h1>You Lose</h1>
+                        <h1 class="article">You Lose</h1>
                     </div>
     
                     <div class="lose__time">

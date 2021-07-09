@@ -13,7 +13,7 @@ export function createMenuCanvs() {
             
             <div class="short__info">
                 <div class="nickname__block">
-                    <div class="nickname nickname__show">Gern</div>
+                    <div class="nickname nickname__show"></div>
                     <input type="text" class="nickname nickname__edit hidden">
                 </div>
     

@@ -312,3 +312,27 @@ body {
   border-radius: 5px;
   border: 2px solid #fdfdfd;
 }
+
+.lives {
+  position: absolute;
+  left: 90%;
+  top: 10%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100px;
+  height: 70px;
+  font-size: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: Syne Mono, sans-serif;
+  font-weight: bold;
+  color: white;
+  border-radius: 5px;
+}

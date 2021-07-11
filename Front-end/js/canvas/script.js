@@ -1,7 +1,7 @@
 import {result} from '../menu/menu.js'
 import {createLoseWindow} from '../canvas/loseWindow/loseWindow.js'
 import {loseWindow} from '../canvas/loseWindow/loseLogic.js'
-import {timeDropLetters, levelBlock, levelBlocklength} from '../menu/levels/levelLogic.js'
+import {timeDropLetters, levelBlock, levelBlocklength, levelScore} from '../menu/levels/levelLogic.js'
 
 let button = document.getElementsByClassName('game__button'),
     canvas = document.getElementById('main'),
@@ -24,7 +24,8 @@ let button = document.getElementsByClassName('game__button'),
     counterPointsToLevelUp = 10,
     checkPole = document.getElementsByClassName('game__time')[0],
     localValue = sessionStorage.getItem('myKey'),
-    counterLevelPoints = 0;
+    counterLevelPoints = 0,
+    counterLives = 3;
 
 
 let localPoints = sessionStorage.getItem('LevelPoints'),
@@ -46,7 +47,16 @@ let counter = 0,
     i = 0,
     j = 0;
 
+function resLives() {
+    counterLives = 3;
+    score.textContent = 0;
+    checkPole.innerHTML = '00:00:00'
+    counterScore = 0;
+    milliseconds = 0;
+}
+
 function resetSettings() {
+    counterLives = 3;
     i = 0;
     counter = 0;
     score.textContent = 0;
@@ -56,11 +66,11 @@ function resetSettings() {
 }
 
 function resetSettingsBeggin() {
+    counterLives = 3;
     i = 0;
     score.textContent = 0;
     counterScore = 0;
     counterFailClicks = 0;
-    checkPole.innerHTML = '00:00:00'
     milliseconds = 0;
 }
 
@@ -97,6 +107,7 @@ button[0].addEventListener('click', () => {
         loseWindow();
 
         document.getElementsByClassName('lose__button')[0].addEventListener('click', () => {
+            document.getElementsByClassName('lives')[0].innerHTML = `Lives:${counterLives}`;
 
             document.body.style.background = '#1d252d';
             counterFailClicks = 0;
@@ -144,6 +155,8 @@ button[0].addEventListener('click', () => {
                 let position = e.getBoundingClientRect();
                 if(position.left < 190) {
                     i++;
+                    counterLives--;
+                    document.getElementsByClassName('lives')[0].innerHTML = `Lives:${counterLives}`;
 
                     function pakmanEat() {
                         let packman = document.getElementById('sprite__img');
@@ -185,7 +198,7 @@ button[0].addEventListener('click', () => {
                             document.getElementsByClassName('main__text')[0].classList.add('unvisible__text');
                             document.getElementsByClassName('main__text')[0].classList.remove('main__text');
                         } catch (e) {
-                            console.log(e);
+
                         }
                     }, 1500);
                 }
@@ -233,7 +246,7 @@ export function startCheck() {
 }
 
 document.getElementsByClassName('back__menu')[0].addEventListener('click', () => {
-
+    clearInterval(levelScore);
     sessionStorage.removeItem('game');
     sessionStorage.setItem('myKey', 'myValue'); 
 
@@ -265,4 +278,4 @@ document.getElementsByClassName('back__menu')[0].addEventListener('click', () =>
         }, 400);
 });
 
-        export {canvas, score, mechanic, textCanvas, removeInterval, timer,resetSettings, counterScore, milliseconds, checkPole, resetSettingsBeggin, persentScore, counterFailClicks, counterPercentSC, i}
+        export {canvas, score, mechanic, textCanvas, removeInterval, timer,resetSettings, counterScore, milliseconds, checkPole, resetSettingsBeggin, persentScore, counterFailClicks, counterPercentSC, i, counterLives, resLives}

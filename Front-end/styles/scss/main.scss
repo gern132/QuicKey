@@ -221,3 +221,19 @@ body {
 		}
 	}
 }
+.lives {
+	position: absolute;
+	left: 90%;
+	top: 10%;
+	transform:translate(-50%, -50%);
+	width: 100px;
+	height: 70px;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Syne Mono, sans-serif;
+	font-weight: bold;
+	color: white;
+	border-radius: 5px;
+}

@@ -1,4 +1,4 @@
-import {canvas} from '../canvas/script.js'
+import {canvas, counterLives, resLives} from '../canvas/script.js'
 import {createMenuCanvs} from './menuCanvas/menuCanvas.js'
 import {createForm} from './regForm/registrationForm.js'
 import {checkLogin} from './regForm/logIn.js'
@@ -95,6 +95,8 @@ export function result() {
   });
 
 menuPoints[0].addEventListener('click', () => { 
+    resLives();
+    document.getElementsByClassName('lives')[0].innerHTML = `Lives:${counterLives}`;
     canvas.classList.remove('hidden');
 
     sessionStorage.removeItem('myKey');

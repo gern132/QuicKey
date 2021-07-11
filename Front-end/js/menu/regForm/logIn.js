@@ -1,9 +1,7 @@
-// import {dataBase} from './dataBase.js'
-
 function checkLogin() {
     let regForm = document.getElementById('form'),
-        submitRegForm = regForm.querySelector('.submit'),
-        cancelRegForm = regForm.querySelector('.cancel'),
+        submitRegForm = document.getElementsByClassName('submit')[0],
+        cancelRegForm = document.getElementsByClassName('cancel')[0],
         requestLogin,
         mainReg = document.getElementsByClassName('main__registration')[0]
 
@@ -28,8 +26,8 @@ function checkLogin() {
     function authForm(e) {
         e.preventDefault();
         
-        let email = regForm.querySelector('.email').value,
-            password = regForm.querySelector('.password').value;
+        let email = document.getElementsByClassName('email')[0].value,
+            password = document.getElementsByClassName('password')[0].value;
 
             authWithEmailAndPass(email, password)
     }
@@ -66,6 +64,3 @@ function checkLogin() {
 }
 
 export {checkLogin}
-
-    // gern5051@gmail.com
-    // 50515051 

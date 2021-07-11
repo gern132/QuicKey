@@ -7,7 +7,7 @@ export function createMenuCanvs() {
                 <div class="level">
                     <span class="personal__level">1</span>
                     <span>lvl</span>
-                    <span class="level__score">0</span><span class="level_score-to-up">100</span>
+                    <span class="level__score">0</span><span class="level_score-to-up">10</span>
                 </div>
             </div>
             

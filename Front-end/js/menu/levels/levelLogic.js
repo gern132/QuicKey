@@ -1,11 +1,12 @@
 import {result} from '../menu.js'
-import {canvas, score, mechanic, textCanvas, removeInterval, timer, resetSettings, counterScore, milliseconds,checkPole, resetSettingsBeggin, persentScore, counterPercentSC, counterFailClicks , i} from '../../canvas/script.js'
+import {canvas, score, mechanic, textCanvas, removeInterval, timer, resetSettings, counterScore, milliseconds,checkPole, resetSettingsBeggin, persentScore, counterPercentSC, counterFailClicks , i, resLives, counterLives} from '../../canvas/script.js'
 import {createLoseWindow} from '../../canvas/loseWindow/loseWindow.js'
 import {loseWindow} from '../../canvas/loseWindow/loseLogic.js'
 
 let timeDropLetters = 1550;
 let levelBlock,
-    levelBlocklength = 9;   
+    levelBlocklength = 9,
+    levelScore;
 
 export function levelLogic() {
     anime({
@@ -46,13 +47,15 @@ export function levelLogic() {
         sessionStorage.setItem('game', 'gamePole'); 
         sessionStorage.removeItem('myKey');
 
+        document.getElementsByClassName('lives')[0].innerHTML = `Lives:${counterLives}`;
+
+        resLives();
         resetSettingsBeggin();
 
-        let levelScore = setInterval(() =>  {
+        levelScore = setInterval(() =>  {
             if(score.textContent == scoreToWin) {
                 persentScore();
                 scoreToWin *= 2;
-                console.log(scoreToWin)
                 clearInterval(mechanic);
                 clearInterval(removeInterval);
                 textCanvas.innerHTML = '';
@@ -137,4 +140,4 @@ export function levelLogic() {
 }
 
 
-export {timeDropLetters, levelBlock, levelBlocklength}
+export {timeDropLetters, levelBlock, levelBlocklength, levelScore}
